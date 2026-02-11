@@ -73,7 +73,7 @@ async def click_more_if_possible(page) -> bool:
         if await btn.count() > 0 and await btn.first.is_visible():
             print("Clicking 'More' via ARIA role/name.")
             await btn.first.click()
-            await page.wait_for_timeout(1200)
+            await page.wait_for_timeout(200)
             return True
     except Exception:
         pass
@@ -92,7 +92,7 @@ async def click_more_if_possible(page) -> bool:
             if await loc.is_visible():
                 print(f"Clicking 'More' via selector: {sel}")
                 await loc.click()
-                await page.wait_for_timeout(1200)
+                await page.wait_for_timeout(200)
                 return True
         except Exception:
             continue
@@ -104,7 +104,7 @@ async def click_more_if_possible(page) -> bool:
         if await text_more.count() > 0 and await text_more.first.is_visible():
             print("Clicking 'More' via generic text match inside words section.")
             await text_more.first.click()
-            await page.wait_for_timeout(1200)
+            await page.wait_for_timeout(200)
             return True
     except Exception:
         pass
@@ -170,7 +170,7 @@ async def main() -> None:
             # If no "more" button (or it stopped working), attempt one more scroll+wait
             if not loaded_more:
                 await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                await page.wait_for_timeout(1500)
+                await page.wait_for_timeout(500)
 
             # Detect stagnation (no new items appearing)
             if after == before:
