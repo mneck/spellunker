@@ -6,3 +6,4 @@ python-multipart
 python-dotenv
 psycopg2-binary
 pandas
+playwright
