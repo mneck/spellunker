@@ -6,6 +6,9 @@ venv/
 # Env
 .env
 
+# Playwright / scraping auth state
+scraping/duolingo_auth_state.json
+
 # idea
 .idea
 
